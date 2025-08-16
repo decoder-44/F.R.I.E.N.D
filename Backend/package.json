@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Backend server for F.R.I.E.N.D",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_OPTIONS=--openssl-legacy-provider NODE_ENV=local node --max-old-space-size=2048 server.js",
+    "dev": "NODE_ENV=local node --watch server.js",
+    "test": "vitest run --coverage.enabled --coverage.all --silent"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "axios": "^1.7.7",
+    "stack-trace": "0.0.10",
+    "redis": "^4.6.13",
+    "winston": "^3.13.0"
+  }
+}
