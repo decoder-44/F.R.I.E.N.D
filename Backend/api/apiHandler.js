@@ -1,5 +1,5 @@
 import { getPhonePePaymentStatus } from "./apis/orderStatus.js";
-import { initiatePhonePePayment } from "./apis/phonePay.js";
+import { initiatePhonePePayment } from "./apis/phonePe.js";
 
 export default function apiHandler(app) {
     // Health check
