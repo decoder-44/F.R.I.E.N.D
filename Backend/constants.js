@@ -37,10 +37,8 @@ export const SERVICE_IDENTITY_CONFIG_MAPPING = {
     }
 }
 
-// Attributes required to fetch identity/access tokens per service (empty for PhonePe flow)
 export const SERVICE_IDENTITY_REQUEST_ATTRIBUTES = {
-    // Example structure for another service:
-    // SOME_SERVICE: { CLIENT_ID: "_CLIENT_ID", CLIENT_SECRET: "_CLIENT_SECRET" }
+    
 };
 
 export const ENV_SUFFIX = {
@@ -48,19 +46,21 @@ export const ENV_SUFFIX = {
 };
 
 export const SERVICE_AXIOS_INSTANCE_CONFIG_MAP = {
-    // PhonePe does not use our generic OAuth bearer flow (it relies on X-VERIFY signature)
     [SERVICE_PROVIDER.PHONE_PE]: {
         API_ACCESS_TOKEN: false,
     },
 };
 
-// PhonePe specific static paths (can extend later for status, refund etc.)
 export const PHONE_PE_API_PATHS = {
     PAY: "/pg/v1/pay",
-    STATUS_BASE: "/pg/v1/status", // final path: /pg/v1/status/{merchantId}/{merchantTransactionId}
+    STATUS_BASE: "/pg/v1/status", 
 };
 
 export const REDIS_CONNECTION_STATE = {
     ERROR: "error",
     CONNECT: "connect",
 };
+
+export const URL_TYPES = {
+    COMMERCE: "COMMERCE",
+}

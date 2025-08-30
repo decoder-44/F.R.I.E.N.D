@@ -1,4 +1,4 @@
-import { URL_TYPES } from "../constants/constants.js"
+import { URL_TYPES } from "../constants.js"
 import { GraphQLClient } from "graphql-request";
 import { HTTP_METHOD } from "../constants.js";
 
@@ -7,8 +7,8 @@ export class GraphqlRequestOperations {
     const urls = {
       COMMERCE: process.env.COMMERCE_URL
     }
-    this.urlType = urlType ?? URL_TYPES.COMMERCE;
-    this.commerceUrl = urls[this.urlType];
+    // this.urlType = urlType ?? URL_TYPES.COMMERCE;
+    this.commerceUrl = urls[URL_TYPES.COMMERCE];
   }
 
   getClient(method) {
