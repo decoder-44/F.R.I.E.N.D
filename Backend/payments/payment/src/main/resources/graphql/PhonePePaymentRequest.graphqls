@@ -1,0 +1,7 @@
+type PhonePeOrderData{
+    orderId: String!
+}
+
+type Query {
+    PhonePePaymentRequest(input: String!): PhonePeOrderData!
+}
