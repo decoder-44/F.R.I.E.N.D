@@ -14,8 +14,8 @@ export async function initiatePhonePePayment(req, res) {
     try {
         validateRequestData(phonePeSchema, req.body);
         const commercePhonePeOps = new CommercePhonePeOps(req);
-        const payload = commercePhonePeOps.buildInitiatePayload({ merchantId, amount, recUpiId, orderId, note, callbackUrl, userId: req.userId });
-        const base64Payload = Buffer.from(JSON.stringify(payload)).toString("base64");
+        const payload = commercePhonePeOps.buildInitiatePayload({ merchantId, amount, recUpiId, orderId, note, userId: req.userId });
+        const base64Payload =btoa(JSON.stringify(payload));
         const checksum = commercePhonePeOps.buildChecksum({ base64Payload, saltKey, saltIndex });
         const response = await commercePhonePeOps.callPhonePePayAPI({ base64Payload, checksum, merchantId, req });
         if (response?.success && response?.data?.instrumentResponse?.intentUrl) {

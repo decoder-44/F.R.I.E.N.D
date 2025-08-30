@@ -1,3 +1,5 @@
+import { PHONE_PE_API_PATHS } from "../../constants.js";
+
 export async function getPhonePePaymentStatus(req, res) {
     try {
         const { orderId } = req.params;
@@ -5,7 +7,8 @@ export async function getPhonePePaymentStatus(req, res) {
         const merchantId = process.env.PHONE_PE_MERCHANT_ID;
         const saltKey = process.env.PHONE_PE_SALT_KEY;
         const saltIndex = process.env.PHONE_PE_SALT_INDEX;
-        const apiPath = `${PHONE_PE_API_PATHS.STATUS_BASE}/${merchantId}/${orderId}`; 
+        const statusUrl = process.env.PHONE_PE_STATUS_URL;
+        const apiPath = statusUrl+`${PHONE_PE_API_PATHS.STATUS_BASE}/${merchantId}/${orderId}`; 
         const stringToSign = apiPath + saltKey;
         const checksum = crypto.createHash("sha256").update(stringToSign).digest("hex") + "###" + saltIndex;
         const option = {
