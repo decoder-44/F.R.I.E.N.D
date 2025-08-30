@@ -11,15 +11,15 @@ class CommercePhonePeOps {
         this.baseUrl = process.env.PHONE_PE_BASE_URL;
     }
 
-    buildInitiatePayload({ merchantId, amount, recUpiId, orderId, note, callbackUrl, userId }) {
+    buildInitiatePayload({ merchantId, amount, recUpiId, orderId, note, userId }) {
         return {
             merchantId,
             merchantTransactionId: orderId,
-            merchantUserId: userId || "anonymousUser",
+            merchantUserId: process.env.PHONE_PE_MERCHANT_ID,
             amount: amount,
-            redirectUrl: callbackUrl,
+            // redirectUrl: callbackUrl,
             redirectMode: "APP",
-            callbackUrl,
+            // callbackUrl,
             paymentInstrument: {
                 type: "UPI_INTENT",
                 targetApp: "com.phonepe.app",
