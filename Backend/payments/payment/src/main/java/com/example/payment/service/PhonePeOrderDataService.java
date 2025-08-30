@@ -4,7 +4,6 @@ import com.example.payment.entity.PhonePeOrderData;
 import com.example.payment.repository.PhonePeOrderDataRepo;
 import com.example.payment.utils.helperFunctions.GenerateRandomId;
 import org.springframework.stereotype.Service;
-import java.util.Base64;
 
 @Service
 public class PhonePeOrderDataService {
